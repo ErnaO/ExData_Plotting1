@@ -16,14 +16,12 @@ sub_hpc <-hpc[idx,]
 td <- paste(sub_hpc$Date,sub_hpc$Time)
 sub_hpc$DateTime <- strptime(td,format="%Y-%m-%d %H:%M:%S")
 
-# Making the plot
+# Making and Writing the plot to PNG
+png("./plot3.png",width=480,height=480, units="px")
 with(sub_hpc, {
-    plot(DateTime, Sub_metering_1, type='l',ylab="Energy sub metering")
+    plot(DateTime, Sub_metering_1, type='l',ylab="Energy sub metering",xlab='')
     lines(DateTime, Sub_metering_2,col="red")
     lines(DateTime, Sub_metering_3, col="blue")
-    legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col=c("black","red","blue"),lty=c(1,1,1))
+    legend("topright",c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col=c("black","red","blue"),lty=c(1,1,1),cex=1)
 })
-
-# Writing the plot to PNG
-dev.copy(png, "./plot3.png",width=480,height=480)
 dev.off()
