@@ -1,5 +1,5 @@
 ## Course Project 1
-## Plot 3
+## Plot 4
 
 # Showing the weekdays in English, otherwise it will be in Dutch...
 Sys.setlocale("LC_TIME", "English")
